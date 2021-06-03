@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.dedeandres.scaffoldprojectmvvmcoroutines.presenter.account.splashscreen.SplashFragment"
+        android:name="com.dedeandres.movieapp.presenter.account.splashscreen.SplashFragment"
         android:label="SplashFragment"
         tool:layout="@layout/fragment_splash" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/landingFragment"
-        android:name="com.dedeandres.scaffoldprojectmvvmcoroutines.presenter.account.landing.LandingFragment"
+        android:name="com.dedeandres.movieapp.presenter.account.landing.LandingFragment"
         android:label="LandingFragment"
         tool:layout="@layout/fragment_landing">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.dedeandres.scaffoldprojectmvvmcoroutines.presenter.account.login.LoginFragment"
+        android:name="com.dedeandres.movieapp.presenter.account.login.LoginFragment"
         android:label="LoginFragment"
         tool:layout="@layout/fragment_login"/>
 </navigation>
