@@ -12,6 +12,8 @@ ext.flavorConfig = {
             resValue "string", "app_name", "Movie App(MOCK)"
             buildConfigField 'String', 'DATABASE_NAME', '"movie_app_database"'
             buildConfigField 'String', 'API_BASE_URL', '"https://node-postgres-registration.herokuapp.com/"'
+            buildConfigField 'String', 'API_KEY', '"646921a9835faa94eae58eb47aba4f79"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/"'
         }
 
         development {
@@ -21,6 +23,8 @@ ext.flavorConfig = {
             resValue "string", "app_name", "Movie App(DEV)"
             buildConfigField 'String', 'DATABASE_NAME', '"movie_app_database"'
             buildConfigField 'String', 'API_BASE_URL', '"https://go-sample-login-register.herokuapp.com"'
+            buildConfigField 'String', 'API_KEY', '"646921a9835faa94eae58eb47aba4f79"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/"'
         }
 
         staging {
@@ -31,6 +35,8 @@ ext.flavorConfig = {
             //for testing only
             buildConfigField 'String', 'DATABASE_NAME', '"movie_app_database"'
             buildConfigField 'String', 'API_BASE_URL', '"https://go-sample-login-register.herokuapp.com"'
+            buildConfigField 'String', 'API_KEY', '"646921a9835faa94eae58eb47aba4f79"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/"'
         }
 
         production {
@@ -39,6 +45,8 @@ ext.flavorConfig = {
             //for testing only
             buildConfigField 'String', 'DATABASE_NAME', '"scaffold_project_database"'
             buildConfigField 'String', 'API_BASE_URL', '"https://go-sample-login-register.herokuapp.com"'
+            buildConfigField 'String', 'API_KEY', '"646921a9835faa94eae58eb47aba4f79"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/"'
         }
 
     }
