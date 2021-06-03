@@ -1,0 +1,47 @@
+apply from: "${rootProject.projectDir}/versions.gradle"
+
+ext.flavorConfig = {
+
+    flavorDimensions "environment"
+
+    productFlavors {
+        mock {
+            dimension "environment"
+            versionName getBuildName()+"-mock"
+            applicationIdSuffix ".mock"
+            resValue "string", "app_name", "Movie App(MOCK)"
+            buildConfigField 'String', 'DATABASE_NAME', '"movie_app_database"'
+            buildConfigField 'String', 'API_BASE_URL', '"https://node-postgres-registration.herokuapp.com/"'
+        }
+
+        development {
+            dimension "environment"
+            versionName getBuildName()+"-dev"
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "Movie App(DEV)"
+            buildConfigField 'String', 'DATABASE_NAME', '"movie_app_database"'
+            buildConfigField 'String', 'API_BASE_URL', '"https://go-sample-login-register.herokuapp.com"'
+        }
+
+        staging {
+            dimension "environment"
+            versionName getBuildName()+"-stage"
+            applicationIdSuffix ".stage"
+            resValue "string", "app_name", "Movie App(STAGE)"
+            //for testing only
+            buildConfigField 'String', 'DATABASE_NAME', '"movie_app_database"'
+            buildConfigField 'String', 'API_BASE_URL', '"https://go-sample-login-register.herokuapp.com"'
+        }
+
+        production {
+            dimension "environment"
+            resValue "string", "app_name", "Movie App"
+            //for testing only
+            buildConfigField 'String', 'DATABASE_NAME', '"scaffold_project_database"'
+            buildConfigField 'String', 'API_BASE_URL', '"https://go-sample-login-register.herokuapp.com"'
+        }
+
+    }
+
+}
+

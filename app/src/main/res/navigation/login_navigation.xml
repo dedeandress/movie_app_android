@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dedeandres.scaffoldprojectmvvmcoroutines.presenter.account.splashscreen.SplashFragment"
+        android:label="SplashFragment"
+        tool:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_landingFragment"
+            app:popUpTo="@+id/splashFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/landingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.dedeandres.scaffoldprojectmvvmcoroutines.presenter.account.landing.LandingFragment"
+        android:label="LandingFragment"
+        tool:layout="@layout/fragment_landing">
+        <action
+            android:id="@+id/action_landingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dedeandres.scaffoldprojectmvvmcoroutines.presenter.account.login.LoginFragment"
+        android:label="LoginFragment"
+        tool:layout="@layout/fragment_login"/>
+</navigation>

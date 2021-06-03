@@ -1,0 +1,24 @@
+ext.versionMajor = 0
+ext.versionMinor = 1
+ext.versionHotfix = 0
+
+ext.getBuildName = {
+    def buildNumber = System.getenv("BITBUCKET_BUILD_NUMBER")
+    def manualBuildNumber = 1
+    if (buildNumber != null) {
+        return String.format('%d.%d.%d-%s', versionMajor, versionMinor, versionHotfix, buildNumber)
+    }
+
+    return String.format('%d.%d.%d-%d', versionMajor, versionMinor, versionHotfix, manualBuildNumber)
+}
+
+ext.getBuildVersion = {
+
+    def version = (versionMajor * 1000000) + (versionMinor * 10000) + (versionHotfix * 100)
+    def buildNumber = System.getenv("BITBUCKET_BUILD_NUMBER")
+    def manualBuildNumber = 1
+    if (buildNumber != null) {
+        version += buildNumber
+    }
+    return version += manualBuildNumber
+}

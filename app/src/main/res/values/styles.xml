@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/positive_color</item>
+    </style>
+
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar"/>
+
+    <style name="ContentTextStyle">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textColor">@color/greyish_brown_4a4a4a</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="ContentTextStyle.Bold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="ContentTextStyle.Bold.Large">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="CommonBottomSheetDialog" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+    </style>
+
+</resources>
