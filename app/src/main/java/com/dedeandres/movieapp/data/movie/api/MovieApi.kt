@@ -11,4 +11,11 @@ interface MovieApi {
         @Query("language") language: String,
         @Query("region") region: String
     ): MovieResponseDto
+
+    @GET("/3/movie/top_rated")
+    suspend fun getTopRated(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("region") region: String
+    ): MovieResponseDto
 }
