@@ -18,4 +18,13 @@ interface MovieApi {
         @Query("language") language: String,
         @Query("region") region: String
     ): MovieResponseDto
+
+    @GET("/3/movie/upcoming")
+    suspend fun getUpcoming(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("region") region: String
+    ): MovieResponseDto
+
+
 }

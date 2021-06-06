@@ -27,4 +27,16 @@ class MovieRepositoryImpl(private val movieApi: MovieApi, private val httpErrorH
             Either.Left(httpErrorHandler.handleException(e))
         }
     }
+
+    override suspend fun getUpcoming(
+        apiKey: String,
+        language: String,
+        region: String
+    ): Either<Exception, List<MovieModel>> {
+        return try {
+            Either.Right(movieApi.getUpcoming(apiKey, language, region).mapToModel())
+        }catch (e: Exception) {
+            Either.Left(httpErrorHandler.handleException(e))
+        }
+    }
 }
