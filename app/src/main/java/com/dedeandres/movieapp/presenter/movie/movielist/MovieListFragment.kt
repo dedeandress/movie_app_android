@@ -25,31 +25,31 @@ class MovieListFragment : BaseViewModelFragment<FragmentMovieListBinding, MovieL
         super.initViews()
 
         viewModel.fetchGenreList()
-        viewModel.fetchTopRatedMovie()
+        viewModel.fetchUpcomingMovie()
 
-        viewModel.fetchGenreListLiveData.observe(viewLifecycleOwner, EventObserver(::handleFetchMovie))
+        viewModel.fetchGenreListLiveData.observe(viewLifecycleOwner, EventObserver(::handleFetchGenre))
         viewModel.fetchMovieListLiveData.observe(viewLifecycleOwner, EventObserver(::handleFetchNowPlayingMovie))
     }
 
     private fun handleFetchNowPlayingMovie(result: Resource<List<MovieResult>>) {
         when(result.state) {
             ResourceState.LOADING -> {
-                Timber.d("handleFetchNowPlayingMovie Loading")
+                Timber.d("handleFetchMovie Loading")
 
                 ProgressDialogUtil.showProgressDialog(WeakReference(requireContext()))
             }
             ResourceState.SUCCESS -> {
                 ProgressDialogUtil.hideProgressDialog()
-                Timber.d("handleFetchNowPlayingMovie Success: ${result.data}")
+                Timber.d("handleFetchMovie Success: ${result.data}")
             }
             ResourceState.ERROR -> {
                 ProgressDialogUtil.hideProgressDialog()
-                Timber.d("handleFetchNowPlayingMovie Error: ${result.exception}")
+                Timber.d("handleFetchMovie Error: ${result.exception}")
             }
         }
     }
 
-    private fun handleFetchMovie(result: Resource<List<GenreResult>>) {
+    private fun handleFetchGenre(result: Resource<List<GenreResult>>) {
         when(result.state) {
             ResourceState.LOADING -> {
                 Timber.d("handleFetchGenreList Loading")
