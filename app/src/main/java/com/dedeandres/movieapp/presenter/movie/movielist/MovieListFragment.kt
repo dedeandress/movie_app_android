@@ -25,10 +25,10 @@ class MovieListFragment : BaseViewModelFragment<FragmentMovieListBinding, MovieL
         super.initViews()
 
         viewModel.fetchGenreList()
-        viewModel.fetchNowPlayingMovie()
+        viewModel.fetchTopRatedMovie()
 
-        viewModel.fetchGenreListLiveData.observe(viewLifecycleOwner, EventObserver(::handleFetchGenreList))
-        viewModel.fetchNowPlayingMovieListLiveData.observe(viewLifecycleOwner, EventObserver(::handleFetchNowPlayingMovie))
+        viewModel.fetchGenreListLiveData.observe(viewLifecycleOwner, EventObserver(::handleFetchMovie))
+        viewModel.fetchMovieListLiveData.observe(viewLifecycleOwner, EventObserver(::handleFetchNowPlayingMovie))
     }
 
     private fun handleFetchNowPlayingMovie(result: Resource<List<MovieResult>>) {
@@ -49,7 +49,7 @@ class MovieListFragment : BaseViewModelFragment<FragmentMovieListBinding, MovieL
         }
     }
 
-    private fun handleFetchGenreList(result: Resource<List<GenreResult>>) {
+    private fun handleFetchMovie(result: Resource<List<GenreResult>>) {
         when(result.state) {
             ResourceState.LOADING -> {
                 Timber.d("handleFetchGenreList Loading")
