@@ -8,9 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#c52d2f</color>
-    <color name="colorPrimaryDark">#f82649</color>
-    <color name="colorAccent">#d43f8d</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#FE6D8E</color>
 
     <!--white-->
     <color name="white_two">#ffffff</color>

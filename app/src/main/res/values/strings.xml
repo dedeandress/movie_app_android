@@ -1,4 +1,12 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="movie_menu">
+
+        <item>Now Playing</item>
+        <item>Box Office</item>
+        <item>Coming Soon</item>
+
+    </string-array>
 </resources>

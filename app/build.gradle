@@ -17,6 +17,10 @@ android {
         viewBinding = true
     }
 
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
     defaultConfig {
         applicationId "com.dedeandres.scaffoldprojectmvvmcoroutines"
         minSdkVersion 16
@@ -90,4 +94,7 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:$timber_version"
 
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
 }

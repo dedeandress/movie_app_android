@@ -22,5 +22,5 @@ fun List<GenreResponseDto.GenreBean>.mapToModel(): List<GenreModel> {
 }
 
 fun GenreResponseDto.GenreBean.mapToModel(): GenreModel {
-    return GenreModel(id = this.id.toString(), name = this.name)
+    return GenreModel(id = this.id, name = this.name)
 }

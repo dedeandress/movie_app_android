@@ -11,4 +11,10 @@ class MovieActivity : BaseActivity<ActivityMovieBinding>() {
         return ActivityMovieBinding.inflate(layoutInflater)
     }
 
+    override fun initView() {
+        super.initView()
+
+        supportActionBar?.hide()
+    }
+
 }
