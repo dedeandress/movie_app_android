@@ -2,7 +2,6 @@ package com.dedeandres.movieapp.common.sharedpref
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.dedeandres.movieapp.domain.account.entity.SessionState
 
 class SharedPrefs(
     private val sharedPreferences: SharedPreferences
@@ -23,17 +22,6 @@ class SharedPrefs(
 
     fun isLoggedIn(): Boolean {
         return accessToken.isNotEmpty()
-    }
-
-    fun getSessionState(): SessionState {
-        if (isLoggedIn()) {
-            return if (isSessionInvalid) {
-                SessionState.INVALID_SESSION
-            } else {
-                SessionState.LOGGED_IN
-            }
-        }
-        return SessionState.NOT_LOGGED
     }
 
     override fun clear() {

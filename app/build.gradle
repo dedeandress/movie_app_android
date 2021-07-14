@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
 }
 
 apply from: "${rootProject.projectDir}/flavors.gradle"
@@ -19,6 +20,10 @@ android {
 
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    lintOptions {
+        abortOnError false
     }
 
     defaultConfig {
@@ -93,6 +98,8 @@ dependencies {
     implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0-alpha03'
 
     implementation "com.jakewharton.timber:timber:$timber_version"
+
+    implementation "de.hdodenhof:circleimageview:$circular_image_view_ersion"
 
     //Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"

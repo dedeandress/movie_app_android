@@ -1,6 +1,8 @@
 package com.dedeandres.movieapp.presenter.movie.movielist
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.dedeandres.movieapp.R
 import com.dedeandres.movieapp.common.ProgressDialogUtil
 import com.dedeandres.movieapp.common.Resource
@@ -33,6 +35,14 @@ class MovieListFragment : BaseViewModelFragment<FragmentMovieListBinding, MovieL
     override fun initViews() {
         super.initViews()
 
+        setupMovieMenuAdapter()
+        setupMovieListAdapter()
+        checkCurrentStateMovieMenu()
+    }
+
+    override fun initLiveDataObservers() {
+        super.initLiveDataObservers()
+
         viewModel.fetchGenreList()
 
         viewModel.fetchGenreListLiveData.observe(
@@ -43,10 +53,6 @@ class MovieListFragment : BaseViewModelFragment<FragmentMovieListBinding, MovieL
             viewLifecycleOwner,
             EventObserver(::handleFetchMovie)
         )
-
-        setupMovieMenuAdapter()
-        setupMovieListAdapter()
-        checkCurrentStateMovieMenu()
     }
 
     private fun checkCurrentStateMovieMenu() {
@@ -145,8 +151,9 @@ class MovieListFragment : BaseViewModelFragment<FragmentMovieListBinding, MovieL
         }
     }
 
-    override fun onMovieItemClick(movieMenu: String) {
-        TODO("Not yet implemented")
+    override fun onMovieItemClick(movieItem: MovieResult) {
+        Timber.d("onMovieItemClick $movieItem")
+        findNavController().navigate(MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment().setMovieId(movieItem.id))
     }
 
     companion object {

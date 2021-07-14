@@ -16,6 +16,7 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
     init {
         Timber.d("MovieListAdapter init")
     }
+
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
         this.onItemClickListener = onItemClickListener
     }
@@ -43,20 +44,24 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     interface OnItemClickListener {
-        fun onMovieItemClick(movieMenu: String)
+        fun onMovieItemClick(movieItem: MovieResult)
     }
 
 
     inner class ViewHolder(private val itemBinding: ItemMoviePosterBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
 
-        fun bindMovie(movieMenu: MovieResult) {
-            itemBinding.tvMovieTitle.text = movieMenu.originalTitle
-            itemBinding.tvRating.text = movieMenu.voteAverage
+        fun bindMovie(movieItem: MovieResult) {
+            itemBinding.tvMovieTitle.text = movieItem.originalTitle
+            itemBinding.tvRating.text = movieItem.voteAverage
 
             Glide.with(itemBinding.root)
-                .load("https://image.tmdb.org/t/p/original" + movieMenu.posterPath)
+                .load("https://image.tmdb.org/t/p/original" + movieItem.posterPath)
                 .into(itemBinding.ivPoster)
+
+            itemView.setOnClickListener {
+                onItemClickListener?.onMovieItemClick(movieItem)
+            }
         }
     }
 }
